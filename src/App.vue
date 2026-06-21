@@ -1,7 +1,6 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <HelloWorld />
+  <h1>Your Body and Mind!</h1>
 </template>
+<script lang="ts"></script>
+
+<style scoped></style>
