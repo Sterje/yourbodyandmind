@@ -8,6 +8,13 @@
   </div>
   <div v-else class="app-desktop">
     <h1>Your Body and Mind!</h1>
+    <p>Fungerar bäst på mobil för tillfället</p>
+    <p>Järnvägsgatan 6, 645 43 Strängnäs</p>
+    <p>Telefon: 0793-356491</p>
+    <p>
+      Email:
+      <a href="mailto:sandra@yourbodyandmind.se">sandra@yourbodyandmind.se</a>
+    </p>
   </div>
 </template>
 <script setup lang="ts">
