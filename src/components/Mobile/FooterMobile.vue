@@ -1,0 +1,24 @@
+<template>
+  <footer class="footer-mobile">
+    <p>Järnvägsgatan 6, 645 43 Strängnäs</p>
+    <p>Telefon: 0793-356491</p>
+    <p>
+      Email:
+      <a href="mailto:sandra@yourbodyandmind.se">sandra@yourbodyandmind.se</a>
+    </p>
+  </footer>
+</template>
+<script setup lang="ts"></script>
+<style scoped>
+.footer-mobile {
+  background-color: #fbfbed;
+  color: #626161;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: auto;
+  width: 100%;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+  font-family: "Arial", sans-serif;
+  line-height: 1.5;
+}
+</style>
