@@ -37,6 +37,7 @@ const isMobile = computed(() => {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: #000000;
 }
 
 .main-wrapper {

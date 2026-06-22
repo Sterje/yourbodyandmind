@@ -11,7 +11,7 @@
 <script setup lang="ts"></script>
 <style scoped>
 .footer-mobile {
-  background-color: #fbfbed;
+  background-color: #131313;
   color: #626161;
   text-align: center;
   padding: 1rem 0;

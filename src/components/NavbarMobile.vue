@@ -2,7 +2,7 @@
   <nav class="navbar-mobile">
     <div class="logo">
       <img
-        src="../assets/yourbodyandmindlogo.png"
+        src="../assets/heroblack.png"
         alt="Your Body and Mind Logo"
         class="logo-image"
       />
@@ -59,8 +59,8 @@ const closeMenu = () => {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.5rem;
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #000000;
+  color: #ffe969;
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -88,7 +88,7 @@ const closeMenu = () => {
 .hamburger span {
   width: 100%;
   height: 3px;
-  background-color: #000000;
+  background-color: #bd9f61;
   border-radius: 3px;
   transition: all 0.3s ease;
   transform-origin: center;
@@ -136,12 +136,13 @@ const closeMenu = () => {
   right: 0;
   height: 100vh;
   width: 280px;
-  background-color: #fbfbed;
+  background-color: #131313;
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
   transform: translateX(100%);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1001;
   padding-top: 80px;
+  color: #bd9f61;
   font-family: "Arial", sans-serif;
 }
 
@@ -164,7 +165,7 @@ const closeMenu = () => {
 
 .nav-links li a {
   display: block;
-  color: #000000;
+  color: #bd9f61;
   text-decoration: none;
   padding: 1.25rem 1.5rem;
   font-size: 1.1rem;
