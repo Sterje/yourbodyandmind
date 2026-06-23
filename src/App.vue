@@ -29,14 +29,6 @@ const { width } = useViewPort();
 const isMobile = computed(() => {
   return width.value < 768; // Adjust the breakpoint as needed
 });
-
-// const isDesktop = computed(() => {
-//   return width.value >= 768; // Adjust the breakpoint as needed
-// });
-
-// const isTablet = computed(() => {
-//   return width.value >= 768 && width.value < 1024; // Adjust the breakpoints as needed
-// });
 </script>
 
 <style scoped>
