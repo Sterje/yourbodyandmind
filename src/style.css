@@ -9,9 +9,6 @@ body {
   height: 100%;
   background-color: #000000;
   overflow-x: hidden;
-  /* Support for iOS notch and safe areas */
-  padding-top: env(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-bottom);
 }
 
 #app {
