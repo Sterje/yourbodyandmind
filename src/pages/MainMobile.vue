@@ -12,6 +12,16 @@
       </a>
     </div>
   </div>
+  <div class="content-section">
+    <div class="content-img">
+      <img src="../assets/Profilbild.jpg" alt="Profilbild" />
+    </div>
+    <p class="content-text">
+      Välkommen till Your Body and Mind! Vi erbjuder ayurvediska behandlingar
+      och samtal för att främja ditt välbefinnande. Utforska våra tjänster och
+      boka en tid för att börja din resa mot balans och harmoni.
+    </p>
+  </div>
 </template>
 <script setup lang="ts"></script>
 <style scoped>
@@ -45,6 +55,7 @@
   text-align: center;
   padding: 2rem 1.5rem;
   max-width: 600px;
+  color: #bd9f61;
 }
 
 .hero-content h1 {
@@ -67,5 +78,37 @@
   transition: background-color 0.3s ease;
   width: 10rem;
   margin-top: 1.5rem;
+}
+
+.content-text {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  text-align: center;
+  padding: 0 1rem;
+  color: #bd9f61;
+  font-family: "Arial", sans-serif;
+  font-style: italic;
+}
+
+.content-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.content-img {
+  margin-bottom: 1rem;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+img {
+  max-width: 90%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
 }
 </style>
