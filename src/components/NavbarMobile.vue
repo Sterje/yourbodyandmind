@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar-mobile">
+  <nav class="navbar-mobile" :class="{ scrolled: isScrolled }">
     <div class="logo">
       <img
         src="../assets/heroblack.png"
@@ -36,9 +36,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 
 const isMenuOpen = ref(false);
+const isScrolled = ref(false);
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
@@ -47,6 +48,18 @@ const toggleMenu = () => {
 const closeMenu = () => {
   isMenuOpen.value = false;
 };
+
+const handleScroll = () => {
+  isScrolled.value = window.scrollY > 50;
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
 </script>
 
 <style scoped>
@@ -64,11 +77,33 @@ const closeMenu = () => {
   color: #ffe969;
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: padding 0.3s ease;
+}
+
+/* Scrolled state - smaller navbar */
+.navbar-mobile.scrolled {
+  padding: 0.5rem 1.5rem;
+  padding-top: calc(0.5rem + env(safe-area-inset-top));
+}
+
+.logo {
+  overflow: hidden;
+  transition: all 0.3s ease;
+  max-height: 10rem;
+  opacity: 1;
+}
+
+/* Hide logo when scrolled */
+.navbar-mobile.scrolled .logo {
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .logo-image {
   height: 10rem;
   width: auto;
+  display: block;
 }
 
 /* Hamburger Icon */
