@@ -50,5 +50,11 @@ const isMobile = computed(() => {
 .main-wrapper {
   flex: 1;
   padding-top: 12rem;
+  background-color: #000000;
+}
+
+.app-desktop {
+  padding: 2rem;
+  min-height: 100vh;
 }
 </style>
