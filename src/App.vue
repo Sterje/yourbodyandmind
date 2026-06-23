@@ -2,7 +2,7 @@
   <div v-if="isMobile" class="app-mobile">
     <NavbarMobile />
     <main class="main-wrapper">
-      <MainMobile />
+      <router-view />
     </main>
     <FooterMobile />
   </div>
@@ -22,7 +22,6 @@ import FooterMobile from "./components/Mobile/FooterMobile.vue";
 import NavbarMobile from "./components/NavbarMobile.vue";
 import useViewPort from "./composables/composables";
 import { computed } from "vue";
-import MainMobile from "./pages/MainMobile.vue";
 
 const { width } = useViewPort();
 

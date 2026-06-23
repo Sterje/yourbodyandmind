@@ -22,4 +22,9 @@
   font-family: "Arial", sans-serif;
   line-height: 1.5;
 }
+
+.footer-mobile a {
+  color: #626161;
+  text-decoration: none;
+}
 </style>

@@ -1,11 +1,18 @@
 <template>
   <nav class="navbar-mobile" :class="{ scrolled: isScrolled }">
-    <div class="logo">
-      <img
-        src="../assets/heroblack.png"
-        alt="Your Body and Mind Logo"
-        class="logo-image"
-      />
+    <div class="logo-container">
+      <RouterLink to="/">
+        <div class="logo">
+          <img
+            src="../assets/heroblack.png"
+            alt="Your Body and Mind Logo"
+            class="logo-image"
+          />
+        </div>
+      </RouterLink>
+      <div class="logo-text">
+        <span>Your Body and Mind</span>
+      </div>
     </div>
     <button
       class="hamburger"
@@ -26,10 +33,21 @@
 
     <div class="menu-panel" :class="{ open: isMenuOpen }">
       <ul class="nav-links">
-        <li><a href="#" @click="closeMenu">Behandlingar</a></li>
+        <li>
+          <router-link to="/behandlingar" @click="closeMenu"
+            >Behandlingar</router-link
+          >
+        </li>
         <li><a href="#" @click="closeMenu">Samtal</a></li>
         <li><a href="#" @click="closeMenu">Sandra</a></li>
-        <li><a href="#" @click="closeMenu">Boka</a></li>
+        <li>
+          <a
+            href="https://www.bokadirekt.se/places/your-body-and-mind-ayurvediska-behandlingar-och-samtal-135195"
+            target="_blank"
+            @click="closeMenu"
+            >Boka</a
+          >
+        </li>
       </ul>
     </div>
   </nav>
@@ -108,6 +126,14 @@ onUnmounted(() => {
   padding-top: calc(0.5rem + env(safe-area-inset-top));
 }
 
+.logo-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 25px;
+  /* Ensure container has height for text when scrolled */
+}
+
 .logo {
   overflow: hidden;
   transition: all 0.3s ease;
@@ -120,12 +146,38 @@ onUnmounted(() => {
   max-height: 0;
   opacity: 0;
   pointer-events: none;
+  margin: 0;
 }
 
 .logo-image {
   height: 10rem;
   width: auto;
   display: block;
+}
+
+/* Logo text for scrolled state */
+.logo-text {
+  position: absolute;
+  left: 0;
+  transition: all 0.3s ease;
+  opacity: 0;
+  white-space: nowrap;
+  font-family: "Bad Script", cursive;
+  font-size: 1.5rem;
+}
+
+.logo-text span {
+  color: #bd9f61;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 25px;
+  /* Match hamburger menu height */
+  display: block;
+}
+
+/* Show logo text when scrolled */
+.navbar-mobile.scrolled .logo-text {
+  opacity: 1;
 }
 
 /* Hamburger Icon */
