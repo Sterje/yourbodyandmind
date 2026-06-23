@@ -43,7 +43,7 @@ const isMobile = computed(() => {
 .app-mobile {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100dvh;
   background-color: #000000;
 }
 
@@ -55,6 +55,6 @@ const isMobile = computed(() => {
 
 .app-desktop {
   padding: 2rem;
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 </style>
