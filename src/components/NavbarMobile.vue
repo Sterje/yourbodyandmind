@@ -59,6 +59,7 @@ const closeMenu = () => {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.5rem;
+  padding-top: calc(1rem + env(safe-area-inset-top));
   background-color: #000000;
   color: #ffe969;
   z-index: 1000;
@@ -134,14 +135,14 @@ const closeMenu = () => {
   position: fixed;
   top: 0;
   right: 0;
-  height: 100vh;
+  height: 100dvh;
   width: 280px;
   background-color: #131313;
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
   transform: translateX(100%);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1001;
-  padding-top: 80px;
+  padding-top: calc(80px + env(safe-area-inset-top));
   color: #bd9f61;
   font-family: "Arial", sans-serif;
 }

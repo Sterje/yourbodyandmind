@@ -15,6 +15,7 @@
   color: #626161;
   text-align: center;
   padding: 1rem 0;
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom));
   margin-top: auto;
   width: 100%;
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);

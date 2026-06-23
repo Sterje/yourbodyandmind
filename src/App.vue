@@ -49,7 +49,7 @@ const isMobile = computed(() => {
 
 .main-wrapper {
   flex: 1;
-  padding-top: 12rem;
+  padding-top: calc(12rem + env(safe-area-inset-top));
   background-color: #000000;
 }
 
