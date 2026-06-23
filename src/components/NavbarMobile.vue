@@ -36,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted, watch } from "vue";
 
 const isMenuOpen = ref(false);
 const isScrolled = ref(false);
@@ -49,10 +49,21 @@ const closeMenu = () => {
   isMenuOpen.value = false;
 };
 
+// Låser scroll när menyn är öppen för att förhindra bakgrundsinteraktion
+watch(isMenuOpen, (isOpen) => {
+  if (isOpen) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "";
+  }
+});
+
+// Hanterar scroll för att ändra navbarens utseende när användaren scrollar
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 50;
 };
 
+// Lägg till och ta bort scroll-eventlyssnare
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
 });
@@ -170,7 +181,7 @@ onUnmounted(() => {
   position: fixed;
   top: 0;
   right: 0;
-  height: 100dvh;
+  bottom: 0;
   width: 280px;
   background-color: #131313;
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
@@ -178,6 +189,7 @@ onUnmounted(() => {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1001;
   padding-top: calc(80px + env(safe-area-inset-top));
+  padding-bottom: env(safe-area-inset-bottom);
   color: #bd9f61;
   font-family: "Arial", sans-serif;
 }
