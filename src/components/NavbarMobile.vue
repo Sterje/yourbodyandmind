@@ -167,7 +167,7 @@ onUnmounted(() => {
 }
 
 .logo-text span {
-  color: #bd9f61;
+  color: #ffe2ba;
   font-size: 1rem;
   font-weight: 600;
   line-height: 25px;
