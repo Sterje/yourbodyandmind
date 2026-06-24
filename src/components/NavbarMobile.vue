@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar-mobile" :class="{ scrolled: isScrolled }">
-    <div class="logo-container">
-      <RouterLink to="/">
+    <RouterLink to="/">
+      <div class="logo-container">
         <div class="logo">
           <img
             src="../assets/logo_transparent.png"
@@ -9,11 +9,12 @@
             class="logo-image"
           />
         </div>
-      </RouterLink>
-      <div class="logo-text">
-        <span>Your Body and Mind</span>
+        <div class="logo-text">
+          <span>Your Body and Mind</span>
+        </div>
       </div>
-    </div>
+    </RouterLink>
+
     <button
       class="hamburger"
       :class="{ active: isMenuOpen }"

@@ -49,7 +49,7 @@
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.7);
   z-index: 1;
 }
 
@@ -94,7 +94,7 @@
 
 .button {
   background-color: #bd9f61;
-  color: white;
+  color: #ffffff;
   border: none;
   padding: 1rem 1rem;
   font-size: 1rem;
@@ -102,6 +102,7 @@
   border-radius: 99px;
   transition: background-color 0.3s ease;
   width: 8rem;
+  font-family: "Bad Script", cursive;
 }
 
 .content-text {
