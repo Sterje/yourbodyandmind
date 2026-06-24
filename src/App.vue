@@ -35,13 +35,13 @@ const isMobile = computed(() => {
   display: flex;
   flex-direction: column;
   min-height: 100dvh;
-  background-color: #7d460d;
+  background-color: #8e560c;
 }
 
 .main-wrapper {
   flex: 1;
   padding-top: calc(12rem + env(safe-area-inset-top));
-  background-color: #7d460d;
+  background-color: #8e560c;
 }
 
 .app-desktop {

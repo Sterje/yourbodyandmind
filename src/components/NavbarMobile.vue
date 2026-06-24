@@ -113,8 +113,8 @@ onUnmounted(() => {
   align-items: center;
   padding: 1rem 1.5rem;
   padding-top: calc(1rem + env(safe-area-inset-top));
-  background-color: #7d450c;
-  color: #e6dbd0;
+  background-color: #8e560c;
+  color: #bd9f61;
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: padding 0.3s ease;
@@ -164,7 +164,6 @@ onUnmounted(() => {
   white-space: nowrap;
   font-family: "Bad Script", cursive;
   font-size: 1.5rem;
-  color: #e6dbd0;
 }
 
 .logo-text span {
@@ -199,7 +198,7 @@ onUnmounted(() => {
 .hamburger span {
   width: 100%;
   height: 3px;
-  background-color: #e6dbd0;
+  background-color: #bd9f61;
   border-radius: 3px;
   transition: all 0.3s ease;
   transform-origin: center;
@@ -254,7 +253,6 @@ onUnmounted(() => {
   z-index: 1001;
   padding-top: calc(80px + env(safe-area-inset-top));
   padding-bottom: env(safe-area-inset-bottom);
-  color: #e6dbd0;
   font-family: "Arial", sans-serif;
 }
 
@@ -277,7 +275,7 @@ onUnmounted(() => {
 
 .nav-links li a {
   display: block;
-  color: #e6dbd0;
+  color: #bd9f61;
   text-decoration: none;
   padding: 1.25rem 1.5rem;
   font-size: 1.1rem;
