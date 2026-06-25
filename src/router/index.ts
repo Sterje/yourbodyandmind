@@ -28,7 +28,7 @@ const router = createRouter({
       component: Samtal,
     },
   ],
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior() {
     // Always scroll to top when navigating
     return { top: 0 };
   },
