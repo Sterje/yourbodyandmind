@@ -106,8 +106,10 @@
 }
 
 .content-card {
-  background-color: #ab670f;
-  color: #ffe2ba;
+  /* background-color: #56483a; */
+  background-color: #f7be63;
+  /* color: #ffe2ba; */
+  color: #4a3b2c;
   padding: 1.5rem;
   margin: 1rem;
   border-radius: 8px;

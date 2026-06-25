@@ -118,7 +118,7 @@ onUnmounted(() => {
   align-items: center;
   padding: 1rem 1.5rem;
   padding-top: calc(1rem + env(safe-area-inset-top));
-  background-color: #cc7722;
+  background-color: #f5b042;
   /* background-color: #8e560c; */
   color: #bd9f61;
   z-index: 1000;

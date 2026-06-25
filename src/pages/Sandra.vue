@@ -76,8 +76,8 @@
 }
 
 .content-card {
-  background-color: #ab670f;
-  color: #ffe2ba;
+  background-color: #f7be63;
+  color: #4a3b2c;
   padding: 1.5rem;
   margin: 1rem;
   border-radius: 8px;
@@ -93,7 +93,7 @@
 
 .content-title-container a {
   text-decoration: none;
-  color: #ffffff;
+  color: #4a3b2c;
   font-family: "Bad Script", cursive;
   font-size: 1rem;
 }
