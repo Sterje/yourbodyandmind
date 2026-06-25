@@ -39,8 +39,12 @@
             >Behandlingar</router-link
           >
         </li>
-        <li><a href="#" @click="closeMenu">Samtal</a></li>
-        <li><a href="#" @click="closeMenu">Sandra</a></li>
+        <li>
+          <router-link to="/samtal" @click="closeMenu">Samtal</router-link>
+        </li>
+        <li>
+          <router-link to="/sandra" @click="closeMenu">Sandra</router-link>
+        </li>
         <li>
           <a
             href="https://www.bokadirekt.se/places/your-body-and-mind-ayurvediska-behandlingar-och-samtal-135195"
@@ -114,7 +118,8 @@ onUnmounted(() => {
   align-items: center;
   padding: 1rem 1.5rem;
   padding-top: calc(1rem + env(safe-area-inset-top));
-  background-color: #8e560c;
+  background-color: #cc7722;
+  /* background-color: #8e560c; */
   color: #bd9f61;
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
