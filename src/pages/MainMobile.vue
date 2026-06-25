@@ -135,5 +135,6 @@ img {
   height: auto;
   border-radius: 8px;
   margin-bottom: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 </style>

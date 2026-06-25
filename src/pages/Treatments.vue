@@ -138,16 +138,17 @@
 }
 
 .book-button {
-  background-color: #bd9f61;
+  background-color: #f5b042;
   color: white;
   border: none;
   padding: 0.3rem 1.6rem;
   border-radius: 4px;
   cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .content-description {
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.5;
   font-family: "Arial", sans-serif;
 }
