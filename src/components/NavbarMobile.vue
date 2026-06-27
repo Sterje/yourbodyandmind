@@ -4,7 +4,7 @@
       <div class="logo-container">
         <div class="logo">
           <img
-            src="../assets/logo_transparent.png"
+            src="../assets/logotransp.png"
             alt="Your Body and Mind Logo"
             class="logo-image"
           />
@@ -118,7 +118,8 @@ onUnmounted(() => {
   align-items: center;
   padding: 1rem 1.5rem;
   padding-top: calc(1rem + env(safe-area-inset-top));
-  background-color: #f5b042;
+  background-color: #f7be63;
+
   /* background-color: #8e560c; */
   color: #bd9f61;
   z-index: 1000;
@@ -173,12 +174,12 @@ onUnmounted(() => {
 }
 
 .logo-text span {
-  color: #ffe2ba;
-  font-size: 1rem;
+  color: #4a3b2c;
+  font-size: 1.5rem;
   font-weight: 600;
   line-height: 25px;
   /* Match hamburger menu height */
-  display: block;
+  /* display: block; */
 }
 
 /* Show logo text when scrolled */
@@ -204,7 +205,8 @@ onUnmounted(() => {
 .hamburger span {
   width: 100%;
   height: 3px;
-  background-color: #bd9f61;
+  /* background-color: #bd9f61; */
+  background-color: #4a3b2c;
   border-radius: 3px;
   transition: all 0.3s ease;
   transform-origin: center;

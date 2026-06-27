@@ -22,9 +22,13 @@
       <img src="../assets/Profilbild.jpg" alt="Profilbild" />
     </div>
     <p class="content-text">
-      Välkommen till Your Body and Mind! Vi erbjuder ayurvediska behandlingar
-      och samtal för att främja ditt välbefinnande. Utforska våra tjänster och
-      boka en tid för att börja din resa mot balans och harmoni.
+      Jag är utbildad beteendevetare, ayuryogalärare och ayurvedisk
+      massageterapeut med ett helhetsperspektiv på hälsa och välbefinnande. I
+      mitt arbete utgår jag från att kropp och sinne är nära sammankopplade –
+      när den ena delen får omsorg påverkas även den andra. Jag möter varje
+      person med närvaro, respekt och lyhördhet. Min ambition är att skapa en
+      trygg och rofylld stund där du får landa, släppa vardagens tempo och
+      återknyta kontakten med dig själv.
     </p>
   </div>
 </template>
@@ -106,13 +110,14 @@
 }
 
 .content-text {
-  font-size: 1.5rem;
+  font-size: 1rem;
   line-height: 1.5;
-  text-align: center;
+  text-align: left;
   padding: 0 1rem;
-  color: #bd9f61;
+  color: #4a3b2c;
   font-family: "Arial", sans-serif;
   font-style: italic;
+  margin-bottom: 2rem;
 }
 
 .content-section {
