@@ -4,7 +4,7 @@
       <div class="logo-container">
         <div class="logo">
           <img
-            src="../assets/logotransp.png"
+            src="../assets/logotransp3.png"
             alt="Your Body and Mind Logo"
             class="logo-image"
           />
