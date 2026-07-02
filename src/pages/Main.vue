@@ -1,13 +1,13 @@
 <template>
-  <SamtalMobile v-if="isMobile" />
-  <SamtalDesktop v-else />
+  <MainMobile v-if="isMobile" />
+  <MainDesktop v-else />
 </template>
 
 <script setup lang="ts">
 import { computed } from "vue";
 import useViewPort from "../composables/composables";
-import SamtalMobile from "./mobile/SamtalMobile.vue";
-import SamtalDesktop from "./desktop/SamtalDesktop.vue";
+import MainMobile from "./mobile/MainMobile.vue";
+import MainDesktop from "./desktop/MainDesktop.vue";
 
 const { width } = useViewPort();
 const isMobile = computed(() => width.value < 768);

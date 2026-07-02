@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import MainMobile from "../pages/MainMobile.vue";
+import Main from "../pages/Main.vue";
 import Treatments from "../pages/Treatments.vue";
 import Sandra from "../pages/Sandra.vue";
 import Samtal from "../pages/Samtal.vue";
@@ -10,7 +10,7 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: MainMobile,
+      component: Main,
     },
     {
       path: "/behandlingar",

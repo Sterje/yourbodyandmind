@@ -19,7 +19,7 @@
   </div>
   <div class="content-section">
     <div class="content-img">
-      <img src="../assets/Profilbild.jpg" alt="Profilbild" />
+      <img src="../../assets/Profilbild.jpg" alt="Profilbild" />
     </div>
     <p class="content-text">
       Jag är utbildad beteendevetare, ayuryogalärare och ayurvedisk
@@ -36,7 +36,7 @@
 <style scoped>
 .hero-section {
   position: relative;
-  background-image: url("../assets/hero.jpg");
+  background-image: url("../../assets/hero.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

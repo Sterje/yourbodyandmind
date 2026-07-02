@@ -8,20 +8,18 @@
   </div>
   <div v-else class="app-desktop">
     <NavbarDesktop />
-    <h1>Your Body and Mind!</h1>
-    <p>Fungerar bäst på mobil för tillfället</p>
-    <p>Järnvägsgatan 6, 645 43 Strängnäs</p>
-    <p>Telefon: 0793-356491</p>
-    <p>
-      Email:
-      <a href="mailto:sandra@yourbodyandmind.se">sandra@yourbodyandmind.se</a>
-    </p>
+    <main class="main-wrapper-desktop">
+      <router-view />
+    </main>
+    <FooterDesktop />
   </div>
 </template>
+
 <script setup lang="ts">
-import NavbarDesktop from "./components/Desktop/NavbarDesktop.vue";
-import FooterMobile from "./components/Mobile/FooterMobile.vue";
-import NavbarMobile from "./components/Mobile/NavbarMobile.vue";
+import NavbarDesktop from "./components/desktop/NavbarDesktop.vue";
+import FooterDesktop from "./components/desktop/FooterDesktop.vue";
+import FooterMobile from "./components/mobile/FooterMobile.vue";
+import NavbarMobile from "./components/mobile/NavbarMobile.vue";
 import useViewPort from "./composables/composables";
 import { computed } from "vue";
 
@@ -37,7 +35,6 @@ const isMobile = computed(() => {
   display: flex;
   flex-direction: column;
   min-height: 100dvh;
-  /* background-color: #4a3b2c; */
   background-color: #f5b042;
 }
 
@@ -48,7 +45,7 @@ const isMobile = computed(() => {
 }
 
 .app-desktop {
-  /* padding: 2rem; */
   min-height: 100dvh;
+  background-color: #f5b042;
 }
 </style>
