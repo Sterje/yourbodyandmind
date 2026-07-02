@@ -55,7 +55,6 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   background-color: #f5b042;
-  padding: 2rem 0;
 }
 
 .logo {
