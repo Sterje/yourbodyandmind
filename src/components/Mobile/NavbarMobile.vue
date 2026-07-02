@@ -4,7 +4,7 @@
       <div class="logo-container">
         <div class="logo">
           <img
-            src="../assets/logotransp3.png"
+            src="../../assets/logotransp3.png"
             alt="Your Body and Mind Logo"
             class="logo-image"
           />
@@ -118,7 +118,8 @@ onUnmounted(() => {
   align-items: center;
   padding: 1rem 1.5rem;
   padding-top: calc(1rem + env(safe-area-inset-top));
-  background-color: #f7be63;
+  /* background-color: #f7be63; */
+  background-color: #f5b042;
 
   /* background-color: #8e560c; */
   color: #bd9f61;

@@ -7,7 +7,9 @@
 html,
 body {
   min-height: 100dvh;
-  background-color: #f5b042;
+  /* background-color: #f5b042; */
+  background-color: #f7be63;
+
   overflow-x: hidden;
   overscroll-behavior-y: none;
 }

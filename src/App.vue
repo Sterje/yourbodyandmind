@@ -7,6 +7,7 @@
     <FooterMobile />
   </div>
   <div v-else class="app-desktop">
+    <NavbarDesktop />
     <h1>Your Body and Mind!</h1>
     <p>Fungerar bäst på mobil för tillfället</p>
     <p>Järnvägsgatan 6, 645 43 Strängnäs</p>
@@ -18,8 +19,9 @@
   </div>
 </template>
 <script setup lang="ts">
+import NavbarDesktop from "./components/Desktop/NavbarDesktop.vue";
 import FooterMobile from "./components/Mobile/FooterMobile.vue";
-import NavbarMobile from "./components/NavbarMobile.vue";
+import NavbarMobile from "./components/Mobile/NavbarMobile.vue";
 import useViewPort from "./composables/composables";
 import { computed } from "vue";
 
@@ -46,7 +48,7 @@ const isMobile = computed(() => {
 }
 
 .app-desktop {
-  padding: 2rem;
+  /* padding: 2rem; */
   min-height: 100dvh;
 }
 </style>
