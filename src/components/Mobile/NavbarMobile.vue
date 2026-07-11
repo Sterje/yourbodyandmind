@@ -1,50 +1,40 @@
 <template>
-  <nav class="navbar-mobile" :class="{ scrolled: isScrolled }">
-    <RouterLink to="/">
-      <div class="logo-container">
-        <div class="logo">
-          <img
-            src="../../assets/logotransp3.png"
-            alt="Your Body and Mind Logo"
-            class="logo-image"
-          />
-        </div>
-        <div class="logo-text">
-          <span>Your Body and Mind</span>
-        </div>
-      </div>
-    </RouterLink>
-
-    <button
-      class="hamburger"
-      :class="{ active: isMenuOpen }"
+  <div class="navbar-mobile" :class="{ scrolled: isScrolled }">
+    <div class="logo">
+      <img
+        v-if="isScrolled"
+        src="../../assets/logoflowerblack.png"
+        alt="Logo"
+      />
+      <img v-else src="../../assets/logoflower.png" alt="Logo" />
+    </div>
+    <div
+      class="hamburger-menu"
+      :class="{ open: isMenuOpen }"
       @click="toggleMenu"
-      aria-label="Toggle menu"
     >
       <span></span>
       <span></span>
       <span></span>
+    </div>
+  </div>
+
+  <!-- Overlay -->
+  <div
+    class="menu-overlay"
+    :class="{ active: isMenuOpen }"
+    @click="closeMenu"
+  ></div>
+
+  <!-- Sliding Menu -->
+  <div class="side-menu" :class="{ open: isMenuOpen }">
+    <button class="close-btn" @click="closeMenu" aria-label="Close menu">
+      <span>&times;</span>
     </button>
-
-    <div
-      class="overlay"
-      :class="{ active: isMenuOpen }"
-      @click="closeMenu"
-    ></div>
-
-    <div class="menu-panel" :class="{ open: isMenuOpen }">
-      <ul class="nav-links">
-        <li>
-          <router-link to="/behandlingar" @click="closeMenu"
-            >Behandlingar</router-link
-          >
-        </li>
-        <li>
-          <router-link to="/samtal" @click="closeMenu">Samtal</router-link>
-        </li>
-        <li>
-          <router-link to="/sandra" @click="closeMenu">Sandra</router-link>
-        </li>
+    <nav class="menu-content">
+      <ul>
+        <li><a href="#home" @click="closeMenu">Behandlingar</a></li>
+        <li><a href="#about" @click="closeMenu">Samtal</a></li>
         <li>
           <a
             href="https://www.bokadirekt.se/places/your-body-and-mind-ayurvediska-behandlingar-och-samtal-135195"
@@ -54,186 +44,121 @@
           >
         </li>
       </ul>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </template>
-
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, watch } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 
-const isMenuOpen = ref(false);
 const isScrolled = ref(false);
+const isMenuOpen = ref(false);
+
+const handleScroll = () => {
+  isScrolled.value = window.scrollY > 10;
+};
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
+  // Prevent body scroll when menu is open
+  if (isMenuOpen.value) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "";
+  }
 };
 
 const closeMenu = () => {
   isMenuOpen.value = false;
+  document.body.style.overflow = "";
 };
 
-// Låser scroll när menyn är öppen för att förhindra bakgrundsinteraktion
-watch(isMenuOpen, (isOpen) => {
-  if (isOpen) {
-    // Save current scroll position
-    const scrollY = window.scrollY;
-    document.body.style.position = "fixed";
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.width = "100%";
-  } else {
-    // Restore scroll position
-    const scrollY = document.body.style.top;
-    document.body.style.position = "";
-    document.body.style.top = "";
-    document.body.style.width = "";
-    if (scrollY) {
-      window.scrollTo(0, parseInt(scrollY || "0") * -1);
-    }
-  }
-});
-
-// Hanterar scroll för att ändra navbarens utseende när användaren scrollar
-const handleScroll = () => {
-  isScrolled.value = window.scrollY > 50;
-};
-
-// Lägg till och ta bort scroll-eventlyssnare
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
 });
 
 onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);
+  document.body.style.overflow = "";
 });
 </script>
-
 <style scoped>
 .navbar-mobile {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
+  width: 100%;
+  height: 60px;
+  background: transparent;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  padding: 1rem 1.5rem;
-  padding-top: calc(1rem + env(safe-area-inset-top));
-  /* background-color: #f7be63; */
-  background-color: #f5b042;
-
-  /* background-color: #8e560c; */
-  color: #bd9f61;
+  padding: 0 20px;
   z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: padding 0.3s ease;
+  transition:
+    background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Scrolled state - smaller navbar */
 .navbar-mobile.scrolled {
-  padding: 0.5rem 1.5rem;
-  padding-top: calc(0.5rem + env(safe-area-inset-top));
-}
-
-.logo-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  min-height: 25px;
-  /* Ensure container has height for text when scrolled */
+  background: #ffedd8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .logo {
-  overflow: hidden;
-  transition: all 0.3s ease;
-  max-height: 10rem;
-  opacity: 1;
-}
-
-/* Hide logo when scrolled */
-.navbar-mobile.scrolled .logo {
-  max-height: 0;
-  opacity: 0;
-  pointer-events: none;
-  margin: 0;
-}
-
-.logo-image {
-  height: 10rem;
-  width: auto;
-  display: block;
-}
-
-/* Logo text for scrolled state */
-.logo-text {
-  position: absolute;
-  left: 0;
-  transition: all 0.3s ease;
-  opacity: 0;
-  white-space: nowrap;
-  font-family: "Bad Script", cursive;
-  font-size: 1.5rem;
-}
-
-.logo-text span {
-  color: #4a3b2c;
-  font-size: 1.5rem;
-  font-weight: 600;
-  line-height: 25px;
-  /* Match hamburger menu height */
-  /* display: block; */
-}
-
-/* Show logo text when scrolled */
-.navbar-mobile.scrolled .logo-text {
-  opacity: 1;
-}
-
-/* Hamburger Icon */
-.hamburger {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 30px;
-  height: 25px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 1002;
+  align-items: center;
   position: relative;
 }
 
-.hamburger span {
-  width: 100%;
+.logo img {
+  height: 50px;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hamburger-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 1001;
+  position: relative;
+}
+
+.hamburger-menu span {
+  display: block;
   height: 3px;
-  /* background-color: #bd9f61; */
-  background-color: #4a3b2c;
-  border-radius: 3px;
-  transition: all 0.3s ease;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transform-origin: center;
 }
 
-/* Hamburger Animation */
-.hamburger.active span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
+.navbar-mobile.scrolled .hamburger-menu span {
+  background-color: #333;
 }
 
-.hamburger.active span:nth-child(2) {
+/* Hamburger animation to X */
+.hamburger-menu.open span:nth-child(1) {
+  transform: translateY(8.5px) rotate(45deg);
+}
+
+.hamburger-menu.open span:nth-child(2) {
   opacity: 0;
-  transform: translateX(-20px);
 }
 
-.hamburger.active span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+.hamburger-menu.open span:nth-child(3) {
+  transform: translateY(-8.5px) rotate(-45deg);
 }
 
-/* Overlay */
-.overlay {
+/* Menu Overlay */
+.menu-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100%;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   opacity: 0;
   visibility: hidden;
@@ -243,58 +168,115 @@ onUnmounted(() => {
   z-index: 999;
 }
 
-.overlay.active {
+.menu-overlay.active {
   opacity: 1;
   visibility: visible;
 }
 
-/* Sliding Menu Panel */
-.menu-panel {
+/* Side Menu */
+.side-menu {
   position: fixed;
   top: 0;
   right: 0;
-  bottom: 0;
-  width: 280px;
-  background-color: #131313;
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+  width: 75%;
+  max-width: 300px;
+  height: 100vh;
+  background: #ffedd8;
   transform: translateX(100%);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 1001;
-  padding-top: calc(80px + env(safe-area-inset-top));
-  padding-bottom: env(safe-area-inset-bottom);
-  font-family: "Arial", sans-serif;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
 }
 
-.menu-panel.open {
+.side-menu.open {
   transform: translateX(0);
 }
 
-/* Navigation Links */
-.nav-links {
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 1001;
+  opacity: 0;
+  transform: rotate(90deg) scale(0.8);
+  transition: all 0.3s ease;
+}
+
+.side-menu.open .close-btn {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+  transition-delay: 0.2s;
+}
+
+.close-btn span {
+  font-size: 40px;
+  color: #333;
+  line-height: 1;
+  display: block;
+  font-weight: 300;
+  transition: transform 0.2s ease;
+}
+
+.close-btn:hover span {
+  transform: rotate(90deg);
+  color: #666;
+}
+
+.menu-content {
+  padding: 80px 30px 30px;
+  height: 100%;
+}
+
+.menu-content ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
 }
 
-.nav-links li {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.menu-content li {
+  margin-bottom: 25px;
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.3s ease;
 }
 
-.nav-links li a {
-  display: block;
-  color: #bd9f61;
+.side-menu.open .menu-content li {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.side-menu.open .menu-content li:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.side-menu.open .menu-content li:nth-child(2) {
+  transition-delay: 0.15s;
+}
+
+.side-menu.open .menu-content li:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.side-menu.open .menu-content li:nth-child(4) {
+  transition-delay: 0.25s;
+}
+
+.menu-content a {
   text-decoration: none;
-  padding: 1.25rem 1.5rem;
-  font-size: 1.1rem;
-  transition:
-    background-color 0.2s ease,
-    padding-left 0.2s ease;
+  color: #333;
+  font-size: 24px;
+  font-weight: 500;
+  display: block;
+  padding: 10px 0;
+  transition: color 0.3s ease;
 }
 
-.nav-links li a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  padding-left: 2rem;
+.menu-content a:hover {
+  color: #666;
 }
 </style>

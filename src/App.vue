@@ -1,51 +1,26 @@
 <template>
-  <div v-if="isMobile" class="app-mobile">
-    <NavbarMobile />
-    <main class="main-wrapper">
+  <div v-if="isMobile">
+    <div class="mobile-container">
+      <NavbarMobile />
       <router-view />
-    </main>
-    <FooterMobile />
+      <FooterMobile />
+    </div>
   </div>
-  <div v-else class="app-desktop">
-    <NavbarDesktop />
-    <main class="main-wrapper-desktop">
+  <div v-else>
+    <div class="desktop-container">
       <router-view />
-    </main>
-    <FooterDesktop />
+    </div>
   </div>
 </template>
-
 <script setup lang="ts">
-import NavbarDesktop from "./components/desktop/NavbarDesktop.vue";
-import FooterDesktop from "./components/desktop/FooterDesktop.vue";
-import FooterMobile from "./components/mobile/FooterMobile.vue";
-import NavbarMobile from "./components/mobile/NavbarMobile.vue";
-import useViewPort from "./composables/composables";
 import { computed } from "vue";
-
-const { width } = useViewPort();
+import useViewport from "./composables/composables.ts";
+import NavbarMobile from "./components/mobile/NavbarMobile.vue";
+import FooterMobile from "./components/mobile/FooterMobile.vue";
+const { width } = useViewport();
 
 const isMobile = computed(() => {
-  return width.value < 768; // Adjust the breakpoint as needed
+  return width.value < 768;
 });
 </script>
-
-<style scoped>
-.app-mobile {
-  display: flex;
-  flex-direction: column;
-  min-height: 100dvh;
-  background-color: #f5b042;
-}
-
-.main-wrapper {
-  flex: 1;
-  padding-top: calc(12rem + env(safe-area-inset-top));
-  background-color: #f5b042;
-}
-
-.app-desktop {
-  min-height: 100dvh;
-  background-color: #f5b042;
-}
-</style>
+<style scoped></style>
