@@ -1,5 +1,5 @@
 <template>
-  <div class="hero-section-mobile">
+  <div id="home" class="hero-section-mobile">
     <div
       v-for="(image, index) in backgroundImages"
       :key="index"
@@ -23,7 +23,7 @@
       </div>
     </div>
   </div>
-  <div class="hero-text">
+  <div id="about" class="hero-text">
     <div class="hero-text-img">
       <img src="../../assets/Profilbild.jpg" alt="Logo" />
       <p>
@@ -37,11 +37,15 @@
       </p>
     </div>
   </div>
+  <TreatmentsMobile />
+  <SamtalMobile />
 </template>
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
+import TreatmentsMobile from "../../components/mobile/TreatmentsMobile.vue";
 import heroImage from "../../assets/hero.jpg";
 import towelImage from "../../assets/towel.png";
+import SamtalMobile from "../../components/mobile/SamtalMobile.vue";
 
 const backgroundImages = [heroImage, towelImage];
 const currentImageIndex = ref(0);
@@ -52,7 +56,7 @@ onMounted(() => {
   intervalId = window.setInterval(() => {
     currentImageIndex.value =
       (currentImageIndex.value + 1) % backgroundImages.length;
-  }, 5000);
+  }, 3000);
 });
 
 onUnmounted(() => {
@@ -67,7 +71,7 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   position: relative;
-  min-height: 70dvh;
+  min-height: 80dvh;
   text-align: center;
   overflow: hidden;
 }

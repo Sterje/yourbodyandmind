@@ -26,14 +26,13 @@
     @click="closeMenu"
   ></div>
 
-  <!-- Sliding Menu -->
   <div class="side-menu" :class="{ open: isMenuOpen }">
     <button class="close-btn" @click="closeMenu" aria-label="Close menu">
       <span>&times;</span>
     </button>
     <nav class="menu-content">
       <ul>
-        <li><a href="#home" @click="closeMenu">Behandlingar</a></li>
+        <li><a href="#behandlingar" @click="closeMenu">Behandlingar</a></li>
         <li><a href="#about" @click="closeMenu">Samtal</a></li>
         <li>
           <a
@@ -139,7 +138,6 @@ onUnmounted(() => {
   background-color: #333;
 }
 
-/* Hamburger animation to X */
 .hamburger-menu.open span:nth-child(1) {
   transform: translateY(8.5px) rotate(45deg);
 }
@@ -173,7 +171,6 @@ onUnmounted(() => {
   visibility: visible;
 }
 
-/* Side Menu */
 .side-menu {
   position: fixed;
   top: 0;
@@ -192,7 +189,6 @@ onUnmounted(() => {
   transform: translateX(0);
 }
 
-/* Close Button */
 .close-btn {
   position: absolute;
   top: 20px;

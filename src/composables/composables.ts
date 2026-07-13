@@ -1,6 +1,6 @@
-import { ref, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 
-const useViewPort = () => {
+const useViewport = () => {
   const width = ref(window.innerWidth);
   const height = ref(window.innerHeight);
 
@@ -9,7 +9,12 @@ const useViewPort = () => {
     height.value = window.innerHeight;
   };
 
-  window.addEventListener("resize", onResize);
+  onMounted(() => {
+    // Ensure initial values are set correctly
+    width.value = window.innerWidth;
+    height.value = window.innerHeight;
+    window.addEventListener("resize", onResize);
+  });
 
   onUnmounted(() => {
     window.removeEventListener("resize", onResize);
@@ -18,4 +23,4 @@ const useViewPort = () => {
   return { width, height };
 };
 
-export default useViewPort;
+export default useViewport;
