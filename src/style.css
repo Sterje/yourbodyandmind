@@ -8,6 +8,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Offset anchor links to account for fixed navbar */
+[id] {
+  scroll-margin-top: 80px;
+}
+
 body {
   background-color: #ffedd8;
   height: 100dvh;

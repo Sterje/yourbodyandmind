@@ -33,7 +33,7 @@
     <nav class="menu-content">
       <ul>
         <li><a href="#behandlingar" @click="closeMenu">Behandlingar</a></li>
-        <li><a href="#about" @click="closeMenu">Samtal</a></li>
+        <li><a href="#samtal" @click="closeMenu">Samtal</a></li>
         <li>
           <a
             href="https://www.bokadirekt.se/places/your-body-and-mind-ayurvediska-behandlingar-och-samtal-135195"
