@@ -30,15 +30,20 @@
     :class="{ active: isModalOpen }"
     @click="closeModal"
   ></div>
-  <div class="bottom-sheet" :class="{ open: isModalOpen }">
-    <div class="sheet-header">
+  <div class="bottom-sheet" :class="{ open: isModalOpen }" :style="sheetStyle">
+    <div
+      class="sheet-header"
+      @touchstart="onTouchStart"
+      @touchmove="onTouchMove"
+      @touchend="onTouchEnd"
+    >
       <div class="sheet-handle"></div>
       <button class="close-btn" @click="closeModal" aria-label="Close">
         <span>&times;</span>
       </button>
     </div>
     <div class="sheet-content">
-      <h2>Om Your Body and Mind</h2>
+      <h2>Om Ayurveda</h2>
       <p>
         Ayurveda är en flera tusen år gammal metod för hälsa och välbefinnande
         och kan enkelt översättas till “kunskap om livet”. Med rötter i Indien
@@ -83,7 +88,7 @@
   <SamtalMobile />
 </template>
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted, computed } from "vue";
 import TreatmentsMobile from "../../components/mobile/TreatmentsMobile.vue";
 import heroImage from "../../assets/hero.jpg";
 import towelImage from "../../assets/towel.png";
@@ -92,6 +97,9 @@ import SamtalMobile from "../../components/mobile/SamtalMobile.vue";
 const backgroundImages = [heroImage, towelImage];
 const currentImageIndex = ref(0);
 const isModalOpen = ref(false);
+const dragY = ref(0);
+const startY = ref(0);
+const isDragging = ref(false);
 let intervalId: number | null = null;
 
 // Change the background image every 5 seconds
@@ -113,12 +121,59 @@ onUnmounted(() => {
 const openModal = () => {
   isModalOpen.value = true;
   document.body.style.overflow = "hidden";
+  dragY.value = 0;
 };
 
 const closeModal = () => {
   isModalOpen.value = false;
   document.body.style.overflow = "";
+  dragY.value = 0;
+  isDragging.value = false;
 };
+
+// Touch handlers for swipe down to close
+const onTouchStart = (e: TouchEvent) => {
+  startY.value = e.touches[0].clientY;
+  isDragging.value = true;
+};
+
+const onTouchMove = (e: TouchEvent) => {
+  if (!isDragging.value) return;
+
+  const currentY = e.touches[0].clientY;
+  const diff = currentY - startY.value;
+
+  // Only allow dragging down
+  if (diff > 0) {
+    dragY.value = diff;
+    e.preventDefault();
+  }
+};
+
+const onTouchEnd = () => {
+  if (!isDragging.value) return;
+
+  // If dragged down more than 100px, close the modal
+  if (dragY.value > 100) {
+    closeModal();
+  } else {
+    // Otherwise snap back
+    dragY.value = 0;
+  }
+
+  isDragging.value = false;
+};
+
+// Computed style for the bottom sheet
+const sheetStyle = computed(() => {
+  if (isDragging.value && dragY.value > 0) {
+    return {
+      transform: `translateY(${dragY.value}px)`,
+      transition: "none",
+    };
+  }
+  return {};
+});
 </script>
 <style scoped>
 .hero-section-mobile {
@@ -272,6 +327,13 @@ const closeModal = () => {
   align-items: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   z-index: 1;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+
+.sheet-header:active {
+  cursor: grabbing;
 }
 
 .sheet-handle {
@@ -280,6 +342,11 @@ const closeModal = () => {
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 2px;
   margin-bottom: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.sheet-header:active .sheet-handle {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .close-btn {
