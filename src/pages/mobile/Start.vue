@@ -19,10 +19,52 @@
         >
           <button class="hero-button">Boka</button>
         </a>
-        <button class="hero-button">Läs mer</button>
+        <button class="hero-button" @click="openModal">Läs mer</button>
       </div>
     </div>
   </div>
+
+  <!-- Bottom Sheet Modal -->
+  <div
+    class="modal-overlay"
+    :class="{ active: isModalOpen }"
+    @click="closeModal"
+  ></div>
+  <div class="bottom-sheet" :class="{ open: isModalOpen }">
+    <div class="sheet-header">
+      <div class="sheet-handle"></div>
+      <button class="close-btn" @click="closeModal" aria-label="Close">
+        <span>&times;</span>
+      </button>
+    </div>
+    <div class="sheet-content">
+      <h2>Om Your Body and Mind</h2>
+      <p>
+        Ayurveda är en flera tusen år gammal metod för hälsa och välbefinnande
+        och kan enkelt översättas till “kunskap om livet”. Med rötter i Indien
+        är ayurveda en holistisk vetenskap som ser till både kropp, sinne och
+        själ. Principen för ayurveda kan sammanfattas med orden “Förebyggande är
+        bättre än bot”. Fokus ligger på att genom en sund livsstil med goda
+        rutiner, diet och utrensning stärka sin hälsa så att sjukdomstillstånd
+        inte uppstår En utvärtes behandling anses i Ayurveda vara lika effektiv
+        som en invärtes behandling. Behandlingen görs i tystnad eftersom syftet
+        är att skapa lugn och ro och stilla den mentala aktiviteten. I vilan
+        efter behandlingen startar läkandet och kroppen självreparerande
+        mekanismer aktiveras. Under några av behandlingarna får du även jobba
+        lite med din andning för att bättre nå ett avslappnat tillstånd och för
+        att tillgodogöra dig behandlingen bra. Alla behandlingar avslutas med 10
+        min. vila som tillkommer till utsatt behandlingstid. Denna vila är
+        viktig då mycket av återhämtningen i kroppen sker under vilan. OBS!
+        Viktigt att tänka på när du bokat en behandling är att du efteråt ej är
+        uppbokad på något annat. Så att du genom att gå hem kan ta det lugnt
+        efter behandlingen kan tillgodogöra dig den till fullo.
+        Grundspännings-nivå:n i kroppen sänks ganska rejält efter en exempelvis
+        Abhyanga eller Vishesh. Och tempot som vi omger oss med, vet vi alla är
+        högt. Så låt kroppen vila i lugn hemmamiljö efter behandling.
+      </p>
+    </div>
+  </div>
+
   <div id="about" class="hero-text">
     <div class="hero-text-img">
       <img src="../../assets/Profilbild.jpg" alt="Logo" />
@@ -49,6 +91,7 @@ import SamtalMobile from "../../components/mobile/SamtalMobile.vue";
 
 const backgroundImages = [heroImage, towelImage];
 const currentImageIndex = ref(0);
+const isModalOpen = ref(false);
 let intervalId: number | null = null;
 
 // Change the background image every 5 seconds
@@ -63,7 +106,19 @@ onUnmounted(() => {
   if (intervalId !== null) {
     clearInterval(intervalId);
   }
+  // Restore body scroll
+  document.body.style.overflow = "";
 });
+
+const openModal = () => {
+  isModalOpen.value = true;
+  document.body.style.overflow = "hidden";
+};
+
+const closeModal = () => {
+  isModalOpen.value = false;
+  document.body.style.overflow = "";
+};
 </script>
 <style scoped>
 .hero-section-mobile {
@@ -168,5 +223,148 @@ onUnmounted(() => {
   color: white;
   transition: background-color 0.3s ease;
   width: 6rem;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+  z-index: 1998;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.bottom-sheet {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #ffedd8;
+  border-radius: 20px 20px 0 0;
+  max-height: 90vh;
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1999;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  font-family: Arial, sans-serif;
+}
+
+.bottom-sheet.open {
+  transform: translateY(0);
+}
+
+.sheet-header {
+  position: sticky;
+  top: 0;
+  background: #ffedd8;
+  padding: 15px 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.sheet-handle {
+  width: 40px;
+  height: 4px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 2;
+}
+
+.close-btn span {
+  font-size: 32px;
+  color: #333;
+  line-height: 1;
+  display: block;
+  font-weight: 300;
+  transition: transform 0.2s ease;
+}
+
+.close-btn:hover span {
+  transform: rotate(90deg);
+  color: #666;
+}
+
+.sheet-content {
+  padding: 30px 25px 40px;
+  animation: slideUp 0.4s ease forwards;
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+.bottom-sheet.open .sheet-content {
+  animation: slideUp 0.3s ease forwards;
+  animation-delay: 0.15s;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sheet-content h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.sheet-content p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.modal-buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.modal-button {
+  padding: 15px 40px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #ffdf80;
+  color: white;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.modal-button:hover {
+  background-color: #ffd666;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 223, 128, 0.4);
 }
 </style>
