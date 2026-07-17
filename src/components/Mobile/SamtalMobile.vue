@@ -47,16 +47,16 @@
     Bad Script,
     cursive;
 
-  color: #4a3b2c;
+  color: var(--color-text-brown);
 }
 
 .samtal-container {
   width: 95%;
   padding: 20px;
-  background-color: #f7be63;
+  background-color: var(--color-accent-gold);
   margin-bottom: 20px;
   font-family: Arial, sans-serif;
-  color: #4a3b2c;
+  color: var(--color-text-brown);
   border-radius: 10px;
 }
 
@@ -69,9 +69,9 @@
 
 .treatment-button {
   padding: 10px 20px;
-  background-color: #ffedd8;
+  background-color: var(--color-background);
 
-  color: #4a3b2c;
+  color: var(--color-text-brown);
 
   border: none;
   border-radius: 5px;

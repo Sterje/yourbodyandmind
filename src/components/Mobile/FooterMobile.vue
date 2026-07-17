@@ -29,7 +29,7 @@ import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 <style scoped>
 .footer-mobile {
   /* background-color: #56483a; */
-  color: #626161;
+  color: var(--color-text-light-gray);
   text-align: center;
   padding: 1rem 0;
   padding-bottom: calc(1rem + env(safe-area-inset-bottom));
@@ -41,7 +41,7 @@ import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 }
 
 .footer-mobile a {
-  color: #626161;
+  color: var(--color-text-light-gray);
   text-decoration: none;
 }
 
@@ -53,7 +53,7 @@ import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 }
 
 .social-icons a {
-  color: #626161;
+  color: var(--color-text-light-gray);
   font-size: 2rem;
   transition: color 0.3s ease;
   margin-bottom: 1rem;

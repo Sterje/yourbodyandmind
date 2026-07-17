@@ -204,7 +204,7 @@ const sheetStyle = computed(() => {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(179, 125, 32, 0.6);
+  background-color: var(--color-overlay-brown);
   z-index: 1;
 }
 
@@ -224,14 +224,14 @@ const sheetStyle = computed(() => {
 }
 .hero-section-mobile p {
   font-size: 16px;
-  color: #666;
+  color: var(--color-text-gray);
 }
 
 .hero-text {
   padding: 20px;
-  background-color: #ffefdd;
+  background-color: var(--color-background-light);
   font-size: 16px;
-  color: #333;
+  color: var(--color-text-dark);
   font-family: Arial, sans-serif;
   font-style: italic;
   line-height: 1.2;
@@ -274,7 +274,7 @@ const sheetStyle = computed(() => {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  background-color: #ffdf80;
+  background-color: var(--color-accent-yellow);
   color: white;
   transition: background-color 0.3s ease;
   width: 6rem;
@@ -283,7 +283,7 @@ const sheetStyle = computed(() => {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--color-overlay-dark);
   opacity: 0;
   visibility: hidden;
   transition:
@@ -302,13 +302,13 @@ const sheetStyle = computed(() => {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #ffedd8;
+  background: var(--color-background);
   border-radius: 20px 20px 0 0;
   max-height: 90vh;
   transform: translateY(100%);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1999;
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-heavy);
   overflow-y: auto;
   font-family: Arial, sans-serif;
 }
@@ -320,7 +320,7 @@ const sheetStyle = computed(() => {
 .sheet-header {
   position: sticky;
   top: 0;
-  background: #ffedd8;
+  background: var(--color-background);
   padding: 15px 20px 10px;
   display: flex;
   flex-direction: column;
@@ -339,14 +339,14 @@ const sheetStyle = computed(() => {
 .sheet-handle {
   width: 40px;
   height: 4px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: var(--color-overlay-light);
   border-radius: 2px;
   margin-bottom: 10px;
   transition: background-color 0.2s ease;
 }
 
 .sheet-header:active .sheet-handle {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--color-overlay-dark);
 }
 
 .close-btn {
@@ -362,7 +362,7 @@ const sheetStyle = computed(() => {
 
 .close-btn span {
   font-size: 32px;
-  color: #333;
+  color: var(--color-text-dark);
   line-height: 1;
   display: block;
   font-weight: 300;
@@ -371,7 +371,7 @@ const sheetStyle = computed(() => {
 
 .close-btn:hover span {
   transform: rotate(90deg);
-  color: #666;
+  color: var(--color-text-gray);
 }
 
 .sheet-content {
@@ -399,14 +399,14 @@ const sheetStyle = computed(() => {
 
 .sheet-content h2 {
   font-size: 24px;
-  color: #333;
+  color: var(--color-text-dark);
   margin-bottom: 20px;
   font-weight: 600;
 }
 
 .sheet-content p {
   font-size: 16px;
-  color: #555;
+  color: var(--color-text-medium);
   line-height: 1.6;
   margin-bottom: 15px;
 }
@@ -423,15 +423,15 @@ const sheetStyle = computed(() => {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  background-color: #ffdf80;
+  background-color: var(--color-accent-yellow);
   color: white;
   transition: all 0.3s ease;
   font-weight: 500;
 }
 
 .modal-button:hover {
-  background-color: #ffd666;
+  background-color: var(--color-accent-yellow-hover);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 223, 128, 0.4);
+  box-shadow: var(--shadow-button);
 }
 </style>

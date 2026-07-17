@@ -43,6 +43,12 @@
           >
         </li>
       </ul>
+      <div class="contact-info">
+        <h4>Kontakt</h4>
+        <p>Telefon:<br />0793-356491</p>
+        <p>E-post:<br />sandra@yourbodyandmind.se</p>
+        <p>Järnvägsgatan 6, 645 43 Strängnäs</p>
+      </div>
     </nav>
   </div>
 </template>
@@ -99,8 +105,8 @@ onUnmounted(() => {
 }
 
 .navbar-mobile.scrolled {
-  background: #ffedd8;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  background: var(--color-background);
+  box-shadow: var(--shadow-light);
 }
 
 .logo {
@@ -128,14 +134,14 @@ onUnmounted(() => {
 .hamburger-menu span {
   display: block;
   height: 3px;
-  background-color: #fff;
+  background-color: var(--color-white);
   border-radius: 2px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transform-origin: center;
 }
 
 .navbar-mobile.scrolled .hamburger-menu span {
-  background-color: #333;
+  background-color: var(--color-text-dark);
 }
 
 .hamburger-menu.open span:nth-child(1) {
@@ -157,7 +163,7 @@ onUnmounted(() => {
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--color-overlay-dark);
   opacity: 0;
   visibility: hidden;
   transition:
@@ -178,7 +184,7 @@ onUnmounted(() => {
   width: 75%;
   max-width: 300px;
   height: 100vh;
-  background: #ffedd8;
+  background: var(--color-background);
   transform: translateX(100%);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1000;
@@ -211,7 +217,7 @@ onUnmounted(() => {
 
 .close-btn span {
   font-size: 40px;
-  color: #333;
+  color: var(--color-text-dark);
   line-height: 1;
   display: block;
   font-weight: 300;
@@ -220,7 +226,7 @@ onUnmounted(() => {
 
 .close-btn:hover span {
   transform: rotate(90deg);
-  color: #666;
+  color: var(--color-text-gray);
 }
 
 .menu-content {
@@ -264,7 +270,7 @@ onUnmounted(() => {
 
 .menu-content a {
   text-decoration: none;
-  color: #333;
+  color: var(--color-text-dark);
   font-size: 24px;
   font-weight: 500;
   display: block;
@@ -273,6 +279,16 @@ onUnmounted(() => {
 }
 
 .menu-content a:hover {
-  color: #666;
+  color: var(--color-text-gray);
+}
+
+.contact-info {
+  margin-top: 30px;
+  font-size: 14px;
+  color: var(--color-text-dark);
+  font-family: Arial, sans-serif;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
 }
 </style>

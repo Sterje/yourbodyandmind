@@ -38,12 +38,12 @@ const isMobile = computed(() => {
 }
 
 .desktop-view h1 {
-  color: #333;
+  color: var(--color-text-dark);
   margin-bottom: 20px;
 }
 
 .desktop-view p {
-  color: #666;
+  color: var(--color-text-gray);
   font-size: 18px;
   margin: 10px 0;
 }
