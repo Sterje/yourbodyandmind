@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Start from "../pages/mobile/Start.vue";
+import Start from "../pages/mobile/StartMobile.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
