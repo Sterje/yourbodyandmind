@@ -2,16 +2,15 @@
   <div v-if="isMobile" class="mobile-view">
     <div class="mobile-container">
       <NavbarMobile />
-      <StartPage />
+      <StartMobile />
       <FooterMobile />
     </div>
   </div>
   <div v-else class="desktop-view">
     <div class="desktop-container">
-      <h1>Desktop Layout</h1>
-      <p>Screen width: {{ width }}px</p>
-      <p>This is the desktop version - coming soon!</p>
-      <!-- You can add desktop components here later -->
+      <NavbarDesktop />
+      <StartPageDesktop />
+      <FooterDesktop />
     </div>
   </div>
 </template>
@@ -19,8 +18,11 @@
 import { computed } from "vue";
 import useViewport from "./composables/composables.ts";
 import NavbarMobile from "./components/mobile/NavbarMobile.vue";
-import StartPage from "./pages/mobile/Start.vue";
+import StartMobile from "./pages/mobile/StartMobile.vue";
 import FooterMobile from "./components/mobile/FooterMobile.vue";
+import NavbarDesktop from "./components/desktop/NavbarDesktop.vue";
+import StartPageDesktop from "./pages/desktop/StartDesktop.vue";
+import FooterDesktop from "./components/desktop/FooterDesktop.vue";
 const { width } = useViewport();
 
 const isMobile = computed(() => {
