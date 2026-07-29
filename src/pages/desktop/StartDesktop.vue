@@ -43,6 +43,14 @@ onMounted(() => {
   }, 3000);
 });
 
+onUnmounted(() => {
+  if (intervalId !== null) {
+    clearInterval(intervalId);
+  }
+  // Restore body scroll
+  document.body.style.overflow = "";
+});
+
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 10;
 };
