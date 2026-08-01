@@ -8,7 +8,7 @@
         <h3>Samtal</h3>
         <div class="buttons">
           <a
-            href="https://www.bokadirekt.se/boka-tjanst/your-body-and-mind-ayurvediska-behandlingar-och-samtal-135195/vishesh-massagebehandling-3416007"
+            href="https://www.bokadirekt.se/places/your-body-and-mind-ayurvediska-behandlingar-och-samtal-135195"
             target="_blank"
           >
             <button class="treatment-button">Boka</button>
