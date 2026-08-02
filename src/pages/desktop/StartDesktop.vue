@@ -198,6 +198,10 @@ const handleScroll = () => {
   border-radius: 5px;
   cursor: pointer;
 }
+
+.hero-button:hover {
+  opacity: 0.8;
+}
 .hero-text {
   display: flex;
   justify-content: center;

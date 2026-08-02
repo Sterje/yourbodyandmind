@@ -121,6 +121,10 @@
   cursor: pointer;
 }
 
+.treatment-button:hover {
+  opacity: 0.8;
+}
+
 .treatments-title h3 {
   font-size: 1.5rem;
 }

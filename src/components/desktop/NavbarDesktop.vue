@@ -4,7 +4,12 @@
       <a href="#behandlingar" class="navbar-link">Behandlingar</a>
 
       <a href="#samtal" class="navbar-link">Samtal</a>
-      <a href="#kontakt" class="navbar-link">Boka</a>
+      <a
+        href="https://www.bokadirekt.se/places/your-body-and-mind-ayurvediska-behandlingar-och-samtal-135195"
+        target="_blank"
+        class="navbar-link"
+        >Boka</a
+      >
     </div>
     <div class="navbar-logo">
       <img
@@ -23,8 +28,11 @@
           <div class="contact-modal-arrow"></div>
           <div class="contact-modal-content">
             <h3>Kontakta mig</h3>
-            <p><strong>Email:</strong> info@yourbodyandmind.se</p>
-            <p><strong>Telefon:</strong> 070-123 45 67</p>
+            <p><strong>Email:</strong> sandra@yourbodyandmind.se</p>
+            <p>
+              <strong>Telefon:</strong><br />
+              <a href="tel:0793356491">0793-356491</a>
+            </p>
             <p>
               <strong>Adress:</strong><br />Järnvägsgatan 6<br />645 43
               Strängnäs
@@ -97,11 +105,17 @@ onUnmounted(() => {
 
 .navbar-link {
   text-decoration: none;
-  color: var(--color-text-gray);
+  color: #ffefdd;
   font-weight: bold;
   position: relative;
   transition: color 0.3s ease;
 }
+
+/* Change link color when navbar is scrolled */
+.navbar-desktop.scrolled .navbar-link {
+  color: var(--color-text-gray);
+}
+
 /* animated underline on hover */
 .navbar-link:hover {
   color: var(--color-accent-gold);
@@ -119,10 +133,6 @@ onUnmounted(() => {
 }
 .navbar-link:hover::after {
   transform: scaleX(1);
-}
-
-.navbar-link.scrolled {
-  color: var(--color-text-dark);
 }
 
 .navbar-logo {
@@ -147,14 +157,25 @@ onUnmounted(() => {
 }
 
 .navbar-contact-button {
+  width: 6rem;
   background-color: var(--color-accent-gold);
   color: var(--color-text-dark);
   border: none;
-  padding: 10px 20px;
+  padding: 1rem;
   border-radius: 5px;
-  font-weight: bold;
   cursor: pointer;
   transition: opacity 0.3s ease;
+}
+
+.hero-button {
+  width: 6rem;
+  padding: 1rem;
+  margin: 0 10px;
+  background-color: var(--color-accent-gold);
+  color: var(--color-text-dark);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .navbar-contact-button:hover {

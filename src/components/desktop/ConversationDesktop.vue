@@ -94,6 +94,10 @@
   cursor: pointer;
 }
 
+.conversation-button:hover {
+  opacity: 0.8;
+}
+
 .conversation-title h3 {
   font-size: 1.5rem;
 }
